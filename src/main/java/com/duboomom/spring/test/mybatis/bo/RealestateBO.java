@@ -28,4 +28,10 @@ public class RealestateBO {
 		return realestateList;
 	}
 	
+	public List<Realestate> getRealestateByAreaPrice(int area, int price) {
+		
+		return realestateDAO.selectRealestateByAreaPrice(area, price);
+		
+	}
+	
 }

@@ -12,6 +12,7 @@ import com.duboomom.spring.test.mybatis.bo.RealestateBO;
 import com.duboomom.spring.test.mybatis.model.Realestate;
 
 @Controller
+@RequestMapping("mybatis/test01")
 public class RealestateController {
 
 	@Autowired
@@ -19,7 +20,7 @@ public class RealestateController {
 	
 	// id로 select 하기
 	@ResponseBody
-	@RequestMapping("/mybatis/test01/1")
+	@RequestMapping("/1")
 	public Realestate realestate(@RequestParam("id") int id) {
 		
 		Realestate realestate = realestateBO.getRealestate(id);
@@ -29,12 +30,24 @@ public class RealestateController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/mybatis/test01/2")
-	public List<Realestate> rentPriceLookup(@RequestParam("rent") int rentPrice) {
+	@RequestMapping("/2")
+	public List<Realestate> realestateByRent(@RequestParam("rent") int rentPrice) {
 		
 		List<Realestate> realestateList = realestateBO.getRealestateByRentPrice(rentPrice);
 		
 		return realestateList;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/3")
+	public List<Realestate> realestateByAreaPrice(
+			@RequestParam("area") int area
+			, @RequestParam("price") int price) {
+		
+		return realestateBO.getRealestateByAreaPrice(area, price);
+				
+	}
+	
+	
 	
 }

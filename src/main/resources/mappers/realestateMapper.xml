@@ -40,7 +40,29 @@
 		FROM
 			`real_estate`
 		WHERE
-			`rentPrice` = #{rentPrice}
+			`rentPrice` <![CDATA[ < ]]> #{rentPrice}
+	</select>
+
+	<select id="selectRealestateByAreaPrice" resultType="com.duboomom.spring.test.mybatis.model.Realestate"
+	parameterType="map">
+		SELECT
+			`id`
+			, `realtorId`
+			, `address`
+			, `area`
+			, `type`
+			, `price`
+			, `rentPrice`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`real_estate`
+		WHERE
+			<![CDATA[ 
+			`area` >= #{area} 
+			AND `price` <= #{price} 
+			]]> 
+	
 	</select>
 
 </mapper>
