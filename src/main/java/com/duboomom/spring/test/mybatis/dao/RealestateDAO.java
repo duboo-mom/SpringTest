@@ -1,5 +1,8 @@
 package com.duboomom.spring.test.mybatis.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.duboomom.spring.test.mybatis.model.Realestate;
@@ -8,6 +11,7 @@ import com.duboomom.spring.test.mybatis.model.Realestate;
 public interface RealestateDAO {
 
 	// 특정 id 데이터 조회
-	public Realestate selectRealestate();
+	public Realestate selectRealestate(@Param("id") int id);
 	
+	public List<Realestate> selectRealestateByRentprice(@Param("rentPrice") int rentPrice);
 }

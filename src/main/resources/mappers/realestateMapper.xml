@@ -7,7 +7,8 @@
   
 <mapper namespace="com.duboomom.spring.test.mybatis.dao.RealestateDAO">
 	
-	<select id="selectRealestate" resultType="com.duboomom.spring.test.mybatis.model.Realestate">
+	<select id="selectRealestate" resultType="com.duboomom.spring.test.mybatis.model.Realestate"
+	parameterType="int">
 		SELECT
 			`id`
 			, `realtorId`
@@ -21,7 +22,25 @@
 		FROM
 			`real_estate`
 		WHERE
-			`id` = 1
+			`id` = #{id}
+	</select>
+	
+	<select id="selectRealestateByRentprice" resultType="com.duboomom.spring.test.mybatis.model.Realestate"
+	parameterType="int">
+		SELECT
+			`id`
+			, `realtorId`
+			, `address`
+			, `area`
+			, `type`
+			, `price`
+			, `rentPrice`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`real_estate`
+		WHERE
+			`rentPrice` = #{rentPrice}
 	</select>
 
 </mapper>

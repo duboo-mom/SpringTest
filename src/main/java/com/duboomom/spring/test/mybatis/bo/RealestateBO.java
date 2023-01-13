@@ -1,5 +1,8 @@
 package com.duboomom.spring.test.mybatis.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +16,16 @@ public class RealestateBO {
 	private RealestateDAO realestateDAO;
 	
 	// 1. id로 데이터 조회
-	public Realestate getRealestate() {
-		Realestate realestate = realestateDAO.selectRealestate();
+	public Realestate getRealestate(int id) {
+		Realestate realestate = realestateDAO.selectRealestate(id);
 		return realestate;
+	}
+	
+	public List<Realestate> getRealestateByRentPrice(int rentPrice) {
+		
+		List<Realestate> realestateList = realestateDAO.selectRealestateByRentprice(rentPrice);
+				
+		return realestateList;
 	}
 	
 }
