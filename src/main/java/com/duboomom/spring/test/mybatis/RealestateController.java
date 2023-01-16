@@ -30,7 +30,7 @@ public class RealestateController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/test01//2")
+	@RequestMapping("/test01/2")
 	public List<Realestate> realestateByRent(@RequestParam("rent") int rentPrice) {
 		
 		List<Realestate> realestateList = realestateBO.getRealestateByRentPrice(rentPrice);
@@ -39,7 +39,7 @@ public class RealestateController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/test01//3")
+	@RequestMapping("/test01/3")
 	public List<Realestate> realestateByAreaPrice(
 			@RequestParam("area") int area
 			, @RequestParam("price") int price) {
