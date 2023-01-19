@@ -16,22 +16,23 @@
 	<b>두번째 숫자 : ${number2 }</b>
 	
 	<h2>2. JSTL core 연산</h2>
-	<c:set var="division" value="${number1 / number2 }"/>
 	
 	<b>더하기 : ${number1 + number2 }</b> <br>
 	<b>빼기 : ${number1 - number2 }</b> <br>
 	<b>곱하기 : ${number1 * number2 }</b> <br>
-	<b>나누기 : ${division }</b>
+	<b>나누기 : ${number1 / number2 }</b>
 	
 	<h2>3. core out</h2>
 	<c:out value="<title>core out</title>"/>
 
 	<h2>4. JSTL core if</h2>
-	<c:if test="${division >= 10 }">
-		<h1>${division }</h1>
+	<c:set var="average" value="${(number1 + number2) / 2 }"/>
+
+	<c:if test="${average >= 10 }">
+		<h1>${average }</h1>
 	</c:if>	
-	<c:if test="${division < 10 }">
-		<h4>${division }</h4>
+	<c:if test="${average < 10 }">
+		<h3>${average }</h3>
 	</c:if>
 
 	<h2>5. core if</h2>
