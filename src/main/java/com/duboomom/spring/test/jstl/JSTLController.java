@@ -80,4 +80,20 @@ public class JSTLController {
 		return "jstl/test02membership";
 	}
 	
+	@GetMapping("/test03")	
+	public String test03(Model model) {
+		
+		List<Integer> candidates = new ArrayList<>();
+		candidates.add(263001);
+		candidates.add(173942); 
+		candidates.add(563057);
+		
+		model.addAttribute("candidates", candidates);
+		
+		return "jstl/test03";
+	}
+	
+	
+	
+	
 }
