@@ -52,21 +52,24 @@
 						<c:forEach var="weather" items="${weatherList }">
 						<tr>
 							<td><fmt:formatDate value="${weather.date }" pattern="yyyy년 M월 d일"/></td>
-							<td><img src="http://marondal.com/material/images/dulumary/web/jstl/sunny.jpg"></td>
 							
-							<%--
 							<td>
 							<c:choose>
-								<c:when test="${weather.weather eq `맑음`}">
-									<img src="http://marondal.com/material/images/dulumary/web/jstl/sunny.jpg">														
+								<c:when test="${weather.weather eq '맑음'}">
+									<img src="/jstl/weather/image/sunny.jpg">														
+								</c:when>
+								<c:when test="${weather.weather eq '구름조금'}">
+									<img src="/jstl/weather/image/partlyCloudy.jpg">														
+								</c:when>
+								<c:when test="${weather.weather eq '흐림'}">
+									<img src="/jstl/weather/image/cloudy.jpg">														
 								</c:when>
 								<c:otherwise>
-									<img src="http://marondal.com/material/images/dulumary/web/jstl/rainy.jpg">
+									<img src="/jstl/weather/image/rainy.jpg">
 								</c:otherwise>
 							</c:choose>
 							</td>
-							 --%>
-							
+														
 							<td>${weather.temperatures }℃</td>
 							<td>${weather.precipitation }mm</td>
 							<td>${weather.microDust }</td>
