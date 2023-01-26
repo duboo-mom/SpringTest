@@ -33,33 +33,37 @@
 			<article class="main-contents p-3">
 				
 				<h3>날씨 입력</h3>
-				<div class="d-flex">
-					<label>날짜</label>
-					<input type="text">
-					<label>날씨</label>
-					<select>
-						<option>맑음</option>
-						<option>구름조금</option>
-						<option>흐림</option>
-						<option>비</option>
-					</select>
-					<label>미세먼지</label>
-					<select>
-						<option>좋음</option>
-						<option>보통</option>
-						<option>나쁨</option>
-						<option>최악</option>
-					</select>
-				</div>
-				<div class="d-flex">
-					<label>기온</label>
-					<input type="text">
-					<label>강수량</label>
-					<input type="text">
-					<label>풍속</label>
-					<input type="text">
-				</div>
-				<button class="btn btn-success">저장</button>
+				<form width="400" method="post" action="/jstl/weather/add">
+					<div class="d-flex mt-3">
+						<label>날짜</label>
+						<input type="text" class="form-control col-3 ml-1" name="date">
+						<label class="ml-5">날씨</label>
+						<select class="form-control col-3 ml-1" name="weather">
+							<option>맑음</option>
+							<option>구름조금</option>
+							<option>흐림</option>
+							<option>비</option>
+						</select>
+						<label class="ml-5">미세먼지</label>
+						<select class="form-control col-3 ml-1" name="microDust">
+							<option>좋음</option>
+							<option>보통</option>
+							<option>나쁨</option>
+							<option>최악</option>
+						</select>
+					</div>
+					<div class="d-flex mt-3">
+						<label>기온</label>
+						<input type="text" class="form-control col-3 ml-1" name="temperatures">
+						<label class="ml-5">강수량</label>
+						<input type="text" class="form-control col-3 ml-1" name="precipitation">
+						<label class="ml-5">풍속</label>
+						<input type="text" class="form-control col-3 ml-1" name="windSpeed">
+					</div>
+					<div class="d-flex justify-content-end mt-3">
+						<button type="submit" class="btn btn-success">저장</button>			
+					</div>				
+				</form>
 			</article>		
 		</section>
 		<footer class="d-flex mt-3 ml-3">
