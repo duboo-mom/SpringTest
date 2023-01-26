@@ -26,8 +26,8 @@
 				</div>
 				<nav class="mt-3">
 					<ul class="nav flex-column align-items-left">
-						<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">날씨</a></li>
-						<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">날씨입력</a></li>
+						<li class="nav-item"><a href="/jstl/weather/list" class="nav-link text-white font-weight-bold">날씨</a></li>
+						<li class="nav-item"><a href="/jstl/weather/input" class="nav-link text-white font-weight-bold">날씨입력</a></li>
 						<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">테마날씨</a></li>
 						<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">관측 기후</a></li>
 					</ul>
@@ -64,8 +64,11 @@
 								<c:when test="${weather.weather eq '흐림'}">
 									<img src="/jstl/weather/image/cloudy.jpg">														
 								</c:when>
-								<c:otherwise>
+								<c:when test="${weather.weather eq '비'}">
 									<img src="/jstl/weather/image/rainy.jpg">
+								</c:when>
+								<c:otherwise>
+									${weather.weather }
 								</c:otherwise>
 							</c:choose>
 							</td>
