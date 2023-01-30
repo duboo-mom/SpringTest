@@ -15,4 +15,9 @@ public interface BookmarkDAO {
 	public int insertBookmark(
 			@Param("name") String name
 			, @Param("url") String url);
+	
+	public int selectCountUrl(@Param("url") String url);
+	
+	public int deleteBookmark(@Param("id") int id);
+	
 }

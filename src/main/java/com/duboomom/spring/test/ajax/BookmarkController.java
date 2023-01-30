@@ -58,4 +58,33 @@ public class BookmarkController {
 		
 	}
 	
+	@ResponseBody
+	@PostMapping("/is_duplicate")
+	public Map<String, Boolean> isDuplicateUrl(@RequestParam("url") String url) {
+		
+		//{"is_duplicate":true}
+		//{"is_duplicate":false}
+		
+		Map<String, Boolean> result = new HashMap<>();
+		
+//		if(bookmarkBO.isDuplicateUrl(url)) {
+//			result.put("is_duplicate", true);
+//		} else {
+//			result.put("is_duplicate", false);
+//		}
+		
+		result.put("is_duplicate", bookmarkBO.isDuplicateUrl(url));
+		
+		return result;
+		
+	}
+	
+	@GetMapping("/delete")
+	public String deleteBookmark(@RequestParam("id") int id) {
+		bookmarkBO.deleteBookmark(id);
+		return "redirect:/ajax/bookmark/list";
+	}
+	
+	// ajax용 delete api
+	
 }

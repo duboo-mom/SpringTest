@@ -35,5 +35,21 @@
 			, now()
 		)
 	</insert>
+	
+	<select id="selectCountUrl" resultType="int" parameterType="string">
+		SELECT
+			count(1)
+		FROM
+			`bookmark`
+		WHERE
+			`url` = #{url}
+	</select>
+	
+	<delete id="deleteBookmark" parameterType="int">
+		DELETE FROM
+			`bookmark`
+		WHERE
+			`id` = #{id}
+	</delete>
 
 </mapper>

@@ -23,6 +23,7 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,12 +32,24 @@
 					<td>${status.count }</td>
 					<td>${bookmark.name }</td>
 					<td>${bookmark.url }</td>
+					<td>
+						<button type="button" class="btn btn-danger">삭제</button>
+					</td>
 				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	
 	</div>	
-
+	
+	
+	<script>
+		$(document).ready(function() {
+			
+			// data 속성..!! delete 버튼 아이디로 처리하면 id 중복되서 안됨!!
+			
+		});
+	
+	</script>
 </body>
 </html>
