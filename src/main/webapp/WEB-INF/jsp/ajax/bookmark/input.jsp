@@ -32,8 +32,22 @@
 	<script>
 		$(document).ready(function() {
 			
+			// 중복 체크 여부 확인 변수
 			var isChecked = false;
-			var isDuplicateUrl = false;
+			
+			// 보수적으로 초기값 잡는게 좋음!
+			var isDuplicateUrl = true;
+			
+			$("#urlInput").on("input", function(){
+				// 중복체크 여부 과정을 모두 취소한다.
+				isChecked = false;
+				isDuplicateUrl = true;
+								
+				$("#duplicatedId").addClass("d-none");
+				$("#availableId").addClass("d-none");
+				
+			});
+						
 			
 			$("#duplicateBtn").on("click", function() {
 				let url = $("#urlInput").val();
@@ -59,13 +73,13 @@
 						
 						if(data.is_duplicate){
 							//중복
-							$("#availableId").addClass("d-none");
 							$("#duplicatedId").removeClass("d-none");
+							$("#availableId").addClass("d-none");							
 							isDuplicateUrl = true;
 						} else{
 							// 중복아님
-							$("#duplicatedId").addClass("d-none");
 							$("#availableId").removeClass("d-none");
+							$("#duplicatedId").addClass("d-none");							
 							isDuplicateUrl = false;
 						}
 					}
@@ -97,7 +111,7 @@
 					return;
 				}
 				
-				// url 중복체크 여부
+				// url 중복체크 했는지 유효성 검사
 				if(!isChecked) {
 					alert("url 중복체크 해주세요");
 					return;
@@ -106,7 +120,7 @@
 				// 중복여부에 따라 저장 안되게
 				// 근데 다시 수정하면? -- 이걸 아직 못했어....
 				if(isDuplicateUrl) {
-					alert("중복되지 않은 url 입력하세요");
+					alert("url 중복되었습니다.");
 					return;
 				}
 				

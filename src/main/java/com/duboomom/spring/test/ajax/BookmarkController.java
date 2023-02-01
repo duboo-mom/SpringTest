@@ -79,12 +79,27 @@ public class BookmarkController {
 		
 	}
 	
+	// 삭제 API
+	// id 를 전달 받고, 해당 행을 삭제하는 API
+	@ResponseBody
 	@GetMapping("/delete")
-	public String deleteBookmark(@RequestParam("id") int id) {
-		bookmarkBO.deleteBookmark(id);
-		return "redirect:/ajax/bookmark/list";
+	public Map<String, String> deleteBookmark(@RequestParam("id") int id) {
+		
+		int count = bookmarkBO.deleteBookmark(id);
+		Map<String, String> map = new HashMap<>();
+		// 삭제 성공시 {"result":"success"}
+		// 삭제 실패시 {"result":"fail"}
+		
+		if(count == 1) {
+			map.put("result", "success");
+		} else {
+			map.put("result", "fail");
+		}
+		
+		return map;		
+		
 	}
 	
-	// ajax용 delete api
+	
 	
 }

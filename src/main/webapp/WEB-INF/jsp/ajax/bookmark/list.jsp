@@ -33,7 +33,7 @@
 					<td>${bookmark.name }</td>
 					<td>${bookmark.url }</td>
 					<td>
-						<button type="button" class="btn btn-danger">삭제</button>
+						<button type="button" data-bookmark-id="${bookmark.id }" class="btn btn-danger btn-sm delete-btn">삭제</button>
 					</td>
 				</tr>
 				</c:forEach>
@@ -47,6 +47,37 @@
 		$(document).ready(function() {
 			
 			// data 속성..!! delete 버튼 아이디로 처리하면 id 중복되서 안됨!!
+			$(".delete-btn").on("click", function() {
+				// 삭제 api 호출
+				// 삭제 대상이 되는 행의 버튼 태그 객체
+				let id = $(this).data("bookmark-id");
+				// alert(id);
+				
+				$.ajax({
+					type:"get"
+					, url:"/ajax/bookmark/delete"
+					, data:{"id":id}
+					, success:function(data) {
+						// {"result":"success"}
+						// {"result":"fail"}
+						if(data.result == "success") {
+							// 새로고침
+							location.reload();
+						} else {
+							alert("삭제 실패");
+						}
+					
+					}
+					, error:function() {
+						alert("삭제 에러");
+					}
+				});				
+				
+				
+			});
+			
+			
+			
 			
 		});
 	
