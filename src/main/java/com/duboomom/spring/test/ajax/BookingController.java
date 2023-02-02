@@ -95,14 +95,14 @@ public class BookingController {
 		
 		Booking booking = bookingBO.findBooking(name, phoneNumber);
 		
-		// 조회가 성공하면 {"result":"success", "data":booking}
+		// 조회가 성공하면 {"result":"success", "booking":booking}
 		// 조회가 실패하면 {"result":"fail"}
 		
 		Map<String, Object> result = new HashMap<>();
 		
 		if(booking != null) {
 			result.put("result", "success");
-			result.put("data", booking);
+			result.put("booking", booking);
 		} else {
 			result.put("result", "fail");
 		}
