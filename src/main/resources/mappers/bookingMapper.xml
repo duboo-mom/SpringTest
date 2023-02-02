@@ -56,11 +56,15 @@
 	<select id="selectBookingByNamePhoneNumber" resultType="com.duboomom.spring.test.ajax.model.Booking"
 	parameterType="string">
 		SELECT
-			`name`
-			, `date`
-			, `day`
+			`id`
+			, `name`
 			, `headcount`
+			, `day`
+			, `date`
+			, `phoneNumber`
 			, `state`
+			, `createdAt`
+			, `updatedAt`
 		FROM
 			`booking`
 		WHERE

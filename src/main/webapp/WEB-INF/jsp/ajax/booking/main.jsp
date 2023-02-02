@@ -113,19 +113,22 @@
     				, url:"/ajax/booking/find"
     				, data:{"name":name, "phoneNumber":phoneNumber}
     				, success:function(data){
+    					
+    					// console.log(data);
+    					// data 확인 하고 조건문 만들면 됨
+    					
     					if(data.result == "fail") {
     						alert("조회 결과가 없습니다.");
     					} else {
-	   						alert("이름:" + data.name   								
-	   								+ "\n날짜:" + data.date
-	   								+ "\n일수:" + data.day
-	   								+ "\n인원:" + data.headcount
-	   								+ "\n상태:" + data.state
-	       							);	    					   						
+    						alert("이름:" + data.booking.name   								
+	   								+ "\n날짜:" + data.booking.date.substring(0,10)
+	   								+ "\n일수:" + data.booking.day
+	   								+ "\n인원:" + data.booking.headcount
+	   								+ "\n상태:" + data.booking.state	);	    					   						
     					}
     				}
     				, error:function(){
-    					alert("조회 실패");
+    					alert("조회 에러");
     				}
     				
     			});

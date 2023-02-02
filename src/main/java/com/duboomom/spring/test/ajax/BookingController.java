@@ -95,20 +95,19 @@ public class BookingController {
 		
 		Booking booking = bookingBO.findBooking(name, phoneNumber);
 		
-		Map<String, Object> status = new HashMap<>(); 
+		// 조회가 성공하면 {"result":"success", "data":booking}
+		// 조회가 실패하면 {"result":"fail"}
 		
-		Map<String, Object> map = new HashMap<>();		
-		if(booking != null) {			
-			map.put("name", booking.getName());
-			map.put("date", booking.getDate());
-			map.put("day", booking.getDay());
-			map.put("headcount", booking.getHeadcount());
-			map.put("state", booking.getState());		
+		Map<String, Object> result = new HashMap<>();
+		
+		if(booking != null) {
+			result.put("result", "success");
+			result.put("data", booking);
 		} else {
-			map.put("result", "fail");
+			result.put("result", "fail");
 		}
 				
-		return map;	
+		return result;	
 		
 	}
 	
